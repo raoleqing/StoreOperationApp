@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ui.order.OrderListFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:theme="@style/CustomSearchViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_46"
+                    android:layout_weight="1"
+                    app:queryHint="请输入门店名字"
+                    app:iconifiedByDefault="false"
+                    android:background="@drawable/search_box_background"
+                    />
+
+                <android.widget.Button
+                    android:id="@+id/btn_search"
+                    style="@style/text_16_white"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_42"
+                    android:layout_marginStart="@dimen/dp_12"
+                    android:background="@drawable/shape_but_bg1"
+                    android:text="搜索"/>
+            </LinearLayout>
+
+        <View
+            style="@style/line_02"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/text_16_333"
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_12"
+                android:paddingEnd="@dimen/dp_12"
+                android:drawablePadding="@dimen/dp_12"
+                android:drawableRight="@mipmap/drop_down_icon1"
+                android:text="全部类型"/>
+
+        </RelativeLayout>
+
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/srl_refresh_task"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp_12">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <!-- 空状态视图 -->
+                    <com.tiandao.store.operation.common.weight.EmptyView
+                        android:id="@+id/emptyView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:emptyIcon="@mipmap/ic_empty_state"
+                        app:emptyMessage="@string/empty_default_message" />
+
+                </RelativeLayout>
+
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+
+</layout>

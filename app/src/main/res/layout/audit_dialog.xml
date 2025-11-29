@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_dialog_bg1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+            <TextView
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="确认审批"/>
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@drawable/ic_close"/>
+        </RelativeLayout>
+
+        <View
+            style="@style/line_02"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingEnd="@dimen/dp_12"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:text="审批结果："/>
+
+            <RadioGroup
+                android:id="@+id/rg_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:text="同意"
+                    android:textColor="#ffb3b3b3"
+                    android:textSize="@dimen/sp_14"
+                    android:checked="true"
+                    android:button="@drawable/radio_button_selector"/>
+
+                <RadioButton
+                    android:id="@+id/rb_fail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:text="拒绝"
+                    android:textColor="#ffb3b3b3"
+                    android:textSize="@dimen/sp_14"
+                    android:button="@drawable/radio_button_selector"/>
+
+                <RadioButton
+                    android:id="@+id/rb_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_40"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:text="驳回"
+                    android:textColor="#ffb3b3b3"
+                    android:textSize="@dimen/sp_14"
+                    android:button="@drawable/radio_button_selector"/>
+            </RadioGroup>
+
+
+            <TextView
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_48"
+                android:gravity="center_vertical"
+                android:text="审核说明："/>
+
+            <EditText
+                android:id="@+id/et_remark"
+                style="@style/input_01"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:padding="@dimen/dp_5"
+                android:gravity="start|top"
+                android:hint="请输入"
+                android:background="@drawable/shape_w_bg_grey_f_r8"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:paddingBottom="@dimen/dp_22"
+                android:orientation="horizontal">
+
+                <android.widget.Button
+                    style="@style/text_16_white"
+                    android:id="@+id/but_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_52"
+                    android:layout_weight="1"
+                    android:text="确定"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/determine_but_01"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+</layout>

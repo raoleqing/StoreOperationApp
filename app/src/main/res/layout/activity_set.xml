@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.set.SetActivity"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@drawable/shape_white_14_bg"
+            android:paddingLeft="@dimen/dp_21"
+            android:paddingRight="@dimen/dp_21"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_modify_password"
+                style="@style/text_16_333"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_62"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:gravity="center_vertical"
+                android:text="修改密码"
+                />
+
+            <View
+                style="@style/line_02" />
+
+            <LinearLayout
+                android:id="@+id/ll_cache"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_62"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_16_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="缓存清理"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_cache_size"
+                    style="@style/text_16_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="12.5MB"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingEnd="@dimen/dp_20"
+            android:paddingBottom="@dimen/dp_22"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <android.widget.Button
+                style="@style/text_16_white"
+                android:id="@+id/but_out"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_52"
+                android:layout_weight="1"
+                android:text="@string/log_out"
+                android:stateListAnimator="@null"
+                android:background="@drawable/determine_but_01"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

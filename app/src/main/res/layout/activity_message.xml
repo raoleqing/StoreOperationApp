@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.message.MessageActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_12">
+
+            <TextView
+                style="@style/text_8080_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建时间：" />
+
+            <TextView
+                android:id="@+id/tv_create_time"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2025-05-18" />
+        </LinearLayout>
+
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_12"
+            android:padding="@dimen/dp_12"
+            android:background="@drawable/shape_edit_bg2" />
+
+    </LinearLayout>
+</layout>

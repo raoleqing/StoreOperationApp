@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/shape_w_bg_grey_f_r8"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_12"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:textStyle="bold"
+                tools:text="业务类型"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                tools:text="2025-10-10"/>
+
+        </LinearLayout>
+
+        <View
+            style="@style/line_02"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+
+                style="@style/text_8080_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="订单金额："/>
+
+            <TextView
+                android:id="@+id/tv_order_amount"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                tools:text=""/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_02"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/text_8080_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="提成类型："/>
+
+            <TextView
+                android:id="@+id/tv_deduct_way"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                tools:text="固定"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_02"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_staff"
+                style="@style/text_8080_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="员工："/>
+
+            <TextView
+                android:id="@+id/tv_amount"
+                style="@style/text_16_colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_5"
+                tools:text="提成金额：￥0"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

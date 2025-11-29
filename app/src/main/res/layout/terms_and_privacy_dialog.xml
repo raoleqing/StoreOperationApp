@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/dp_30"
+        android:paddingEnd="@dimen/dp_30"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_white_14_bg"
+        android:padding="@dimen/dp_25"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户协义与隐私条款"
+            android:textColor="#ff333333"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            style="@style/text_16_333"
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            tools:text="用户协议与隐私政策用户协议与隐私政策用户协议与隐私政策用户协议与隐私政策用户协议与隐私政策用户协议与隐私政策"
+            />
+
+        <!-- 提交按钮-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:orientation="horizontal">
+
+
+            <android.widget.Button
+                style="@style/text_16_colorPrimary"
+                android:id="@+id/button_close"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:layout_weight="1"
+                android:background="@drawable/shape_but_bg3"
+                android:text="取 消" />
+
+            <View
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_48"/>
+
+            <android.widget.Button
+                style="@style/text_16_white"
+                android:id="@+id/button_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:layout_weight="1"
+                android:text="确 定"
+                android:background="@drawable/shape_but_bg1"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</layout>

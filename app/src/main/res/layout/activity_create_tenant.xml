@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.tenant.CreateTenantActivity"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/dp_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_12"
+                android:background="@drawable/shape_w_bg_grey_f_r8"
+                android:orientation="vertical">
+
+                <!-- 租户名称 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="租户名称" />
+
+                    <EditText
+                        style="@style/input_01"
+                        android:id="@+id/etTenantName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:hint="请输入租户名称" />
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+                <!-- 联系人 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系人" />
+
+                    <EditText
+                        style="@style/input_01"
+                        android:id="@+id/etContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:hint="请输入联系人" />
+
+                </LinearLayout>
+
+
+                <View
+                    style="@style/line_02"/>
+
+                <!-- 联系电话 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系电话" />
+
+                    <EditText
+                        style="@style/input_01"
+                        android:id="@+id/etContactPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:inputType="phone"
+                        android:hint="请输入联系电话" />
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+
+                <!-- 版本 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="版本" />
+
+                    <Spinner
+                        android:id="@+id/spinnerLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_12" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+
+                <!-- 联系邮箱 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系邮箱" />
+
+                    <EditText
+                        style="@style/input_01"
+                        android:id="@+id/etContactEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:inputType="textEmailAddress"
+                        android:hint="请输入联系邮箱" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+
+                <TextView
+                    style="@style/text_16_333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center"
+                    android:text="备注" />
+                <!-- 备注 -->
+                <EditText
+                    android:id="@+id/etRemark"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:hint="请输入内容"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/shape_edit_bg3"
+                    android:padding="12dp" />
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_12"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                style="@style/text_16_white"
+                android:id="@+id/but_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:text="注册"
+                android:stateListAnimator="@null"
+                android:background="@drawable/determine_but_01"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

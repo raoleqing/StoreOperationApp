@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tiandao.store.operation">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".base.StoreOperationApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fitsSystemWindows="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StoreOperation"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.commission.CommissionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.audit.AuditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.order.OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.shop.ShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tenant.CreateTenantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tenant.TenantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.shop.ShopListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tenant.TenantListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.message.MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.message.MessageListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.my.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.my.ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ui.my.SetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.webview.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

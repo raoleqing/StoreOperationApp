@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 主要内容区域 -->
+    <FrameLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 加载中状态 -->
+    <LinearLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/semi_transparent"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="@dimen/dp_180"
+            android:layout_height="@dimen/dp_60"
+            android:padding="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_white_14_bg">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:text="@string/http_loading" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- 错误状态 -->
+    <include
+        android:id="@+id/errorView"
+        layout="@layout/layout_error_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+</RelativeLayout>

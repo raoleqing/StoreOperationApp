@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.shop.ShopActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_12"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_12"
+                android:background="@drawable/shape_w_bg_grey_f_r8"
+                android:orientation="vertical">
+
+                <!-- 租户名称 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="门店名称" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tv_shop_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="名称" />
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+                <!-- 联系人 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系人" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tvContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="饶先生" />
+
+                </LinearLayout>
+
+
+                <View
+                    style="@style/line_02"/>
+
+                <!-- 联系电话 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="联系电话" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tvContactPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="联系电话" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+                <!-- 联系电话 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="责任人" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tvOwnerStaffName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        />
+
+                </LinearLayout>
+
+
+                <View
+                    style="@style/line_02"/>
+
+                <!-- 版本 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="有效期" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tv_valid_end_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="2025-10-10" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="短信数" />
+
+                    <TextView
+                        style="@style/text_16_333"
+                        android:id="@+id/tv_sms_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="10" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/line_02"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/text_8080_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="状态" />
+
+                    <TextView
+                        style="@style/text_16_colorPrimary"
+                        android:id="@+id/tv_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        tools:text="启动" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_12"
+            android:orientation="horizontal">
+
+            <android.widget.Button
+                style="@style/text_16_colorPrimary"
+                android:id="@+id/but_pay_sms"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:layout_weight="1"
+                android:text="购买短信套餐"
+                android:stateListAnimator="@null"
+                android:background="@drawable/shape_but_bg3"/>
+
+            <Space
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="wrap_content"/>
+
+            <android.widget.Button
+                style="@style/text_16_white"
+                android:id="@+id/but_pay_shop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48"
+                android:layout_weight="1"
+                android:text="购买门店管理费"
+                android:stateListAnimator="@null"
+                android:background="@drawable/determine_but_01"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

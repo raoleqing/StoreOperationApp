@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.tiandao.store.operation.bean.Notice" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_w_bg_grey_f_r8"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingStart="@dimen/dp_12"
+        android:paddingEnd="@dimen/dp_12"
+        android:paddingBottom="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_12">
+
+        <LinearLayout
+            android:id="@+id/ll_task_item_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_message_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_14"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/color_17181b"
+                tools:text="任务名称"
+                android:textSize="@dimen/sp_18" />
+
+            <TextView
+                style="@style/text_16_white"
+                android:id="@+id/tv_type"
+                android:layout_width="@dimen/dp_88"
+                android:layout_height="@dimen/dp_32"
+                android:gravity="center"
+                android:text="平台消息"
+                android:visibility="gone"
+                android:background="@drawable/shape_but_bg1"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/color_17181b"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintTop_toBottomOf="@id/ll_task_item_top" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_14"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/color_17181b"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

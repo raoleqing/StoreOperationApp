@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_26"
+        android:paddingRight="@dimen/dp_26"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".ui.set.AboutActivity">
+
+
+        <ImageView
+            android:layout_width="@dimen/dp_88"
+            android:layout_height="@dimen/dp_88"
+            android:background="@mipmap/app_icon"
+            android:layout_marginTop="@dimen/dp_60" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="慧云门店管理后台"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_64"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_62"
+                android:layout_weight="1"
+                android:text="版本检查"
+                android:textColor="#ff5c5c5c"
+                android:textSize="16sp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="V1.0.0"
+                android:drawableRight="@drawable/ic_arrow_right" />
+
+        </LinearLayout>
+
+
+        <View style="@style/line_02" />
+
+        <TextView
+            android:id="@+id/tv_protocol"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_62"
+            android:text="服务协议"
+            android:textColor="#ff5c5c5c"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/ic_arrow_right" />
+
+
+        <View style="@style/line_02" />
+
+
+        <TextView
+            android:id="@+id/tv_privacy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_62"
+            android:text="隐私政策"
+            android:textColor="#ff5c5c5c"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+</layout>

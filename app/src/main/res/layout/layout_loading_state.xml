@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/WhiteBackToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@color/white"
+            app:titleCentered="true"
+            app:title="详情"
+            android:textSize="@dimen/sp_16">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/appCompatImageButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                android:background="?selectableItemBackgroundBorderless" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <!-- 主要内容区域 -->
+        <FrameLayout
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+    <!-- 加载中状态 -->
+    <LinearLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/semi_transparent"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="@dimen/dp_180"
+            android:layout_height="@dimen/dp_60"
+            android:padding="@dimen/dp_16"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_white_14_bg">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:text="@string/http_loading" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- 错误状态 -->
+    <include
+        android:id="@+id/errorView"
+        layout="@layout/layout_error_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tiandao.store.operation.ui.main.HomeFragment"
+        android:label="Task"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/orderListFragment"
+        android:name="com.tiandao.store.operation.ui.order.OrderListFragment"
+        android:label="order"
+        tools:layout="@layout/fragment_order_list"/>
+
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="com.tiandao.store.operation.ui.my.MyFragment"
+        android:label="My"
+        tools:layout="@layout/fragment_my" />
+</navigation>

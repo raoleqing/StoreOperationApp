@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/shape_dialog_bg1">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+
+            <TextView
+                style="@style/text_16_333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="选择日期" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:src="@drawable/ic_close" />
+        </RelativeLayout>
+
+        <View style="@style/line_02" />
+
+        <TextView
+            android:id="@+id/tv_selected_date"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_20"
+            android:paddingEnd="@dimen/dp_20"
+            android:orientation="horizontal">
+
+            <NumberPicker
+                android:id="@+id/yearPicker"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp" />
+
+            <NumberPicker
+                android:id="@+id/monthPicker"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp" />
+
+            <NumberPicker
+                android:id="@+id/dayPicker"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_12"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="取消"
+                android:textAllCaps="false"
+                android:backgroundTint="#F44336"
+                android:layout_marginEnd="20dp"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="确认"
+                android:textAllCaps="false"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

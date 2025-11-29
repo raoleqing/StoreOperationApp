@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white"
+        tools:context=".ui.login.LoginActivity">
+
+        <!-- 应用Logo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/app_icon" />
+
+
+        <!-- 手机号/用户名输入 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号："
+                android:textColor="@color/color_17181b"
+                android:textSize="@dimen/sp_20" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入账号"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码："
+                android:textColor="@color/color_17181b"
+                android:textSize="@dimen/sp_20" />
+
+            <!-- 密码输入 -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+
+        <!-- 登录按钮 -->
+        <android.widget.Button
+            style="@style/text_16_white"
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_60"
+            android:text="@string/login"
+            android:background="@drawable/btn_bg_selector" />
+
+
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/layout_error_state.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_transparent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_260"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/shape_white_14_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_error" />
+
+        <TextView
+            android:id="@+id/tvErrorMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="@dimen/dp_200"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/load_fail"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sure"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

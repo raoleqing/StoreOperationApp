@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.message.MessageListActivity">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_refresh_task"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_12">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- 空状态视图 -->
+                <com.tiandao.store.operation.common.weight.EmptyView
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:emptyIcon="@mipmap/ic_empty_state"
+                    app:emptyMessage="@string/empty_default_message" />
+
+            </RelativeLayout>
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
