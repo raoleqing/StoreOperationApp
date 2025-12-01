@@ -39,7 +39,6 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
             // 下拉刷新回调
             viewModel.pageIndex = 1
             viewModel.getStaffCommissionListList()
-
         }
 
         binding.srlRefreshTask.setOnLoadMoreListener {
@@ -47,7 +46,6 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
             viewModel.pageIndex++
             viewModel.getStaffCommissionListList()
         }
-
         binding.tvMonth.setOnClickListener(this)
     }
 
@@ -65,13 +63,15 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
 
     override fun initData() {
         viewModel.pageIndex = 1
-        val date = DateUtils.getCurrentTime(DateUtils.FORMAT_YMD)
-        var month = DateUtils.getStartOfDayString( date, DateUtils.FORMAT_YMD, DateUtils.FORMAT_YM)
+        val date = DateUtils.getCurrentTime(DateUtils.FORMAT_YMD_HMS)
+        var month = DateUtils.getStartOfDayString( date, DateUtils.FORMAT_YMD_HMS, DateUtils.FORMAT_YM)
         binding.tvMonth.text = month
-        viewModel.getStaffCommissionListList();
 
-        var staffId = UserUtils.getUserId( this)
-        viewModel.getStaffCountByMonth(staffId, date)
+        viewModel.staffId = UserUtils.getUserId( this)
+        viewModel.month = date
+
+        viewModel.getStaffCommissionListList();
+        viewModel.getStaffCountByMonth(date)
 
         var user = UserUtils.getCurrentUser( this)
         user?.let {
@@ -97,14 +97,16 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
 
         viewModel.commissionCount.observe(this){
            if(it != null){
-               binding.tvTotal.text = "￥".plus(it.total)
-               binding.tvMonthTotal.text = "￥".plus(it.count)
+               binding.tvTotal.text = "￥".plus(it.total?:"0.00")
+               binding.tvMonthTotal.text = "￥".plus(it.count?:"0.00")
            }
         }
 
         viewModel.staffCommissionList.observe(this){
             if(it != null){
-                binding.tvListTotal.text = "(总额：".plus(it.monthTotal).plus(")")
+                it.monthTotal?.let {
+                    binding.tvListTotal.text = "(总额：".plus(it).plus(")")
+                }
                 if(viewModel.pageIndex == 1){
                     list.clear()
                 }

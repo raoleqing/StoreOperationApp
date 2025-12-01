@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tiandao.store.operation.base.BaseViewModel
 import com.tiandao.store.operation.bean.CommissionCount
-import com.tiandao.store.operation.bean.StaffCommission
 import com.tiandao.store.operation.bean.StaffCommissionVo
 import com.tiandao.store.operation.network.ApiService
 import com.tiandao.store.operation.network.RetrofitClient
@@ -26,16 +25,16 @@ class CommissionViewModel: BaseViewModel() {
     private val _staffCommissionList = MutableLiveData<StaffCommissionVo>()
     val staffCommissionList: LiveData<StaffCommissionVo> = _staffCommissionList
 
-
     private val _commissionCount = MutableLiveData<CommissionCount>()
     val commissionCount: LiveData<CommissionCount> = _commissionCount
 
     var pageIndex : Int = 1
+    var staffId: Long = 0
     var month: String = ""
     fun getStaffCommissionListList() {
         _loadingState.value = true
         this.http(api = {
-            RetrofitClient.createService<ApiService>().staffCommissionList(month,pageIndex, PAGE_SIZE)
+            RetrofitClient.createService<ApiService>().staffCommissionList(staffId,month,pageIndex, PAGE_SIZE)
         }, success = {
             _staffCommissionList.value = it
             _loadingState.value = false
@@ -44,8 +43,7 @@ class CommissionViewModel: BaseViewModel() {
         }
     }
 
-
-    fun getStaffCountByMonth(staffId: Long, month: String) {
+    fun getStaffCountByMonth(month: String) {
         _loadingState.value = true
         this.http(api = {
             RetrofitClient.createService<ApiService>().getStaffCountByMonth(staffId,month)

@@ -7,6 +7,6 @@ class CommissionCount(
     var staffId: String,
     var staffName: String,
     var month: String,
-    var count: BigDecimal,
-    var total: BigDecimal,
+    var count: BigDecimal?,
+    var total: BigDecimal?,
 ): Serializable

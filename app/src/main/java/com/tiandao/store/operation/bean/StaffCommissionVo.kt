@@ -6,5 +6,5 @@ import java.math.BigDecimal
 class StaffCommissionVo (
     var list: List<StaffCommission>? = null,
     var month: String,
-    var monthTotal: BigDecimal,
+    var monthTotal: BigDecimal?,
 ): Serializable

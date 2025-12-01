@@ -9,7 +9,6 @@ import com.tiandao.store.operation.bean.Notice
 import com.tiandao.store.operation.bean.PlatformOrder
 import com.tiandao.store.operation.bean.PlatformRechargePlan
 import com.tiandao.store.operation.bean.Shop
-import com.tiandao.store.operation.bean.StaffCommission
 import com.tiandao.store.operation.bean.StaffCommissionVo
 import com.tiandao.store.operation.bean.SysTenant
 import com.tiandao.store.operation.bean.SysUserBo
@@ -19,7 +18,6 @@ import com.tiandao.store.operation.bean.UserLogFrom
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -131,6 +129,7 @@ interface ApiService {
 
     @GET("system/mobile/staffCommission/list")
     suspend fun staffCommissionList(
+        @Query("staffId") staffId: Long,
         @Query("month") month: String,
         @Query("pageNum") pageNum: Int,
         @Query("pageSize") pageSize: Int
