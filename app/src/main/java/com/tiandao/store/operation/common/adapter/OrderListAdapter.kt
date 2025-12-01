@@ -33,7 +33,8 @@ diffCallback = object : DiffUtil.ItemCallback<PlatformOrder>() {
     }
 
     override fun bind(binding: OrderListItemBinding, item: PlatformOrder, position: Int) {
-        binding.tvName.text = item.planName.plus("  ￥").plus(item.paymentAmount)
+        val planType = StringUtils.getPlanTypeText(item.planType)
+        binding.tvName.text = planType.plus("  ￥").plus(item.paymentAmount)
         var status = StringUtils.getAuditStatusText(item.auditStatus)
         binding.tvStatus.text = status
         binding.tvStatus.setBackgroundResource(getBackground(item.auditStatus))

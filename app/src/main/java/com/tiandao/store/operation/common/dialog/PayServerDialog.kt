@@ -5,7 +5,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +18,7 @@ import com.tiandao.store.operation.databinding.PayServerDialogBinding
 import com.tiandao.store.operation.utils.DisplayUtil
 import com.tiandao.store.operation.utils.ToastUtils
 
-class PayServerDialog (context: Activity, private val planList: List<PlatformRechargePlan>,private
+class PayServerDialog (context: Activity, private val type: String, private val planList: List<PlatformRechargePlan>,private
 val listener: OnFilterAppliedListener) : AppCompatDialog(context) {
 
     private var binding: PayServerDialogBinding? = null
@@ -25,7 +27,7 @@ val listener: OnFilterAppliedListener) : AppCompatDialog(context) {
     private val adapter = PayServerAdapter()
 
     interface OnFilterAppliedListener {
-        fun determine(dialog: PayServerDialog,platformRechargePlan: PlatformRechargePlan,payType: String)
+        fun determine(dialog: PayServerDialog,platformRechargePlan: PlatformRechargePlan?,payType: String,amount: Int)
         fun close(dialog: PayServerDialog)
     }
 
@@ -64,12 +66,36 @@ val listener: OnFilterAppliedListener) : AppCompatDialog(context) {
             var levelAdapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, levels)
             levelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             it.spinnerPayType.adapter = levelAdapter
+
+            // 设置选择监听器
+            it.spinnerPayType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    if(position == 3 || position == 4){
+                       it.recyclerView.visibility = View.GONE
+                       if(type == "shop"){
+                           it.llMonth.visibility = View.VISIBLE
+                       }else{
+                           it.llNum.visibility = View.VISIBLE
+                       }
+                    }else{
+                        it.recyclerView.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    // 没有选择时的处理
+                    ToastUtils.showShort("请选择一个选项")
+                }
+            }
+
+            val months = arrayOf("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月")
+            var monthAdapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, months)
+            monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            it.spinnerMonth.adapter = monthAdapter
+
         }
         binding?.butSubmit?.setOnClickListener {
-            if(platformRechargePlan == null){
-                ToastUtils.showShort("请选择充值项")
-                return@setOnClickListener
-            }
+
             val payType = when (binding?.spinnerPayType?.selectedItemPosition) {
                 0 -> "wechat"
                 1 -> "alipay"
@@ -79,10 +105,26 @@ val listener: OnFilterAppliedListener) : AppCompatDialog(context) {
                 else -> "wechat"
             }
 
-            platformRechargePlan?.let {
-                listener.determine(this,it,payType)
+            var amount: Int = 0;
+            if(payType == "give" || payType == "refund"){
+                if(type == "shop"){
+                    amount = binding?.spinnerMonth?.selectedItemPosition?: 0
+                    amount++
+                }else{
+                    var num = binding?.etNum?.text.toString()
+                    if(num.isEmpty()){
+                        ToastUtils.showShort("请输入数量")
+                        return@setOnClickListener
+                    }
+                    amount = num.toInt()
+                }
+            }else{
+                if(platformRechargePlan == null){
+                    ToastUtils.showShort("请选择充值项")
+                    return@setOnClickListener
+                }
             }
-
+            listener.determine(this,platformRechargePlan,payType,amount)
         }
 
         binding?.ivClose?.setOnClickListener {

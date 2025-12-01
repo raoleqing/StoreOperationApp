@@ -29,12 +29,11 @@ class FlowAuditRecordAdapter : BaseAdapter<FlowAuditRecord, FlowAuditRecordItemB
     }
 
     override fun bind(binding: FlowAuditRecordItemBinding, item: FlowAuditRecord, position: Int) {
-        binding.tvType.text = StringUtils.getPayTypeText(item.flowType)
+        binding.tvType.text = StringUtils.getPlanTypeText(item.flowType)
         binding.tvStatus.text = StringUtils.getAuditStatusText(item.auditStatus)
         binding.tvStatus.setBackgroundResource(getBackground(item.auditStatus))
         binding.tvAuditOpName.text = item.auditOpName
         binding.tvTime.text = item.createTime
-        binding.tvAuditRemark.text = item.auditRemark
     }
 
     private fun getBackground(status: Int): Int {

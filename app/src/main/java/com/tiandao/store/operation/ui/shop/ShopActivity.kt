@@ -9,6 +9,7 @@ import com.tiandao.store.operation.bean.PlatformRechargePlan
 import com.tiandao.store.operation.bean.Shop
 import com.tiandao.store.operation.bean.SysTenant
 import com.tiandao.store.operation.common.dialog.PayServerDialog
+import com.tiandao.store.operation.common.enum.EnumType
 import com.tiandao.store.operation.common.event.EventCode
 import com.tiandao.store.operation.common.event.EventMessage
 import com.tiandao.store.operation.databinding.ActivityShopBinding
@@ -16,6 +17,7 @@ import com.tiandao.store.operation.utils.DateUtils
 import com.tiandao.store.operation.utils.EventBusUtils
 import com.tiandao.store.operation.utils.ToastUtils
 import com.tiandao.store.operation.utils.UserUtils
+import java.math.BigDecimal
 
 class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
 
@@ -86,11 +88,11 @@ class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
                 when(type){
                     "shop" -> {
                         shopList = it
-                        showPayServerDialog(shopList);
+                        showPayServerDialog("shop",shopList);
                     }
                     "sms" -> {
                         smsList = it
-                        showPayServerDialog(smsList);
+                        showPayServerDialog("sms",smsList);
                     }
                 }
 
@@ -133,7 +135,7 @@ class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
                     type = "shop"
                     viewModel.getPlatformRechargePlanList(sysTenant?.level?:0, "shop");
                 }else{
-                    showPayServerDialog(shopList)
+                    showPayServerDialog("shop",shopList)
                 }
             }
             R.id.but_pay_sms -> {
@@ -141,18 +143,18 @@ class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
                     type = "sms"
                     viewModel.getPlatformRechargePlanList(sysTenant?.level?:0, "sms");
                 }else{
-                    showPayServerDialog(smsList)
+                    showPayServerDialog("sms",smsList)
                 }
             }
         }
     }
 
-    private fun showPayServerDialog(planList: List<PlatformRechargePlan>) {
+    private fun showPayServerDialog(type: String,planList: List<PlatformRechargePlan>) {
 
-         var dialog : PayServerDialog = PayServerDialog(this,planList,object : PayServerDialog.OnFilterAppliedListener{
-             override fun determine(dialog: PayServerDialog, platformRechargePlan: PlatformRechargePlan, payType: String) {
+         var dialog = PayServerDialog(this,type,planList,object : PayServerDialog.OnFilterAppliedListener{
+             override fun determine(dialog: PayServerDialog, platformRechargePlan: PlatformRechargePlan?, payType: String, amount: Int) {
                  dialog.dismiss()
-                 createOrder(platformRechargePlan,payType);
+                 createOrder(platformRechargePlan,payType,amount);
              }
              override fun close(dialog: PayServerDialog) {
                  dialog.dismiss()
@@ -163,7 +165,28 @@ class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
     }
 
 
-    private fun createOrder(plan: PlatformRechargePlan, payType: String) {
+    private fun createOrder(plan: PlatformRechargePlan?, payType: String, amount: Int) {
+
+        val planId: Long
+        val planType: String
+        val planName: String
+        val payAmount: Int
+
+        if(payType == EnumType.PayType.GIVE || payType == EnumType.PayType.REFUND){
+            planId = 0
+            planType = type
+            planName = if(payType == EnumType.PayType.GIVE){
+                "赠送"
+            }else{
+                "返还"
+            }
+            payAmount = amount
+        }else{
+            planId = plan?.id?:0
+            planType =  plan?.type?:""
+            planName = plan?.name?:""
+            payAmount = plan?.amount?:0
+        }
 
          var platformOrder = PlatformOrder(
              id = 0,
@@ -172,11 +195,11 @@ class ShopActivity : BaseActivity<ActivityShopBinding, ShopViewModel>()   {
              shopId = shop?.id?:0,
              shopName = shop?.shopName?:"",
              orderNo = "",
-             planType = plan.type,
-             planId = plan.id,
-             planName = plan.name,
-             amount = plan.amount,
-             paymentAmount = plan.price,
+             planType = planType,
+             planId = planId,
+             planName = planName,
+             amount = payAmount,
+             paymentAmount = plan?.price?:BigDecimal.ZERO,
              paymentChannel = payType,
              status = 0,
              payTime = DateUtils.getCurrentTime(DateUtils.FORMAT_YMD_HMS),

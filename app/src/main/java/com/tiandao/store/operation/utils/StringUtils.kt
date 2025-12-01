@@ -50,7 +50,7 @@ object StringUtils {
 
     fun getUnitText(type:  String): String {
         return when(type){
-            "shop" -> "年"
+            "shop" -> "月"
             "sms" -> "条"
             else -> ""
         }
@@ -61,6 +61,14 @@ object StringUtils {
         return when(type){
             1 -> "比例提成"
             2 -> "固定提成"
+            else -> ""
+        }
+    }
+
+    fun getPlanTypeText(type:  String): String {
+        return when(type){
+            "shop" -> "门店管理费"
+            "sms" -> "短信费"
             else -> ""
         }
     }
