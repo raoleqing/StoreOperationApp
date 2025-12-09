@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StoreOperation</string>
+    <string name="app_name">慧店云运营管理</string>
 
     <string name="http_loading">加载中...</string>
     <string name="txt_sync_loading">努同步中...</string>
