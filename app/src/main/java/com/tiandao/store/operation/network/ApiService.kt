@@ -10,6 +10,7 @@ import com.tiandao.store.operation.bean.PlatformOrder
 import com.tiandao.store.operation.bean.PlatformRechargePlan
 import com.tiandao.store.operation.bean.Shop
 import com.tiandao.store.operation.bean.StaffCommissionVo
+import com.tiandao.store.operation.bean.StaffHierarchy
 import com.tiandao.store.operation.bean.SysTenant
 import com.tiandao.store.operation.bean.SysUserBo
 import com.tiandao.store.operation.bean.UpdatePasswordFrom
@@ -127,10 +128,10 @@ interface ApiService {
         @Query("pageSize") pageSize: Int
     ): ResultBean<List<FlowAuditRecord>>
 
-    @GET("system/mobile/staffCommission/list")
+    @GET("system/mobile/staffMonthlyFlow/list")
     suspend fun staffCommissionList(
         @Query("staffId") staffId: Long,
-        @Query("month") month: String,
+        @Query("monthYear") month: String,
         @Query("pageNum") pageNum: Int,
         @Query("pageSize") pageSize: Int
     ): ResultBean<StaffCommissionVo>
@@ -140,4 +141,19 @@ interface ApiService {
         @Query("staffId") staffId: Long,
         @Query("month") month: String
     ): ResultBean<CommissionCount>
+
+
+
+    @GET("system/mobile/staffHierarchy/list")
+    suspend fun getStaffHierarchyList(
+        @Query("managerStaffId") managerStaffId: Long,
+        @Query("pageNum") pageNum: Int,
+        @Query("pageSize") pageSize: Int
+    ): ResultBean<List<StaffHierarchy>>
+
+    @GET("system/mobile/staffHierarchy/{staffId}")
+    suspend fun getStaffHierarchy(
+        @Path("staffId") staffId: Long,
+    ): ResultBean<StaffHierarchy>
+
 }

@@ -34,7 +34,7 @@ class PayServerAdapter : BaseAdapter<PlatformRechargePlan, PlatformRechargePlanI
     override fun bind(binding: PlatformRechargePlanItemBinding, item: PlatformRechargePlan, position: Int) {
         binding.tvName.text = item.name
         var unit = when(item.type){
-            "shop" -> "年"
+            "shop" -> "月"
             "sms" -> "条"
             else -> ""}
         binding.tvCount.text = item.amount.toString().plus( unit)

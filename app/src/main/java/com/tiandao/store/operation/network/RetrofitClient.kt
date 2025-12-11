@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
     const val TERMS_URL = "http://120.78.175.159:8090/agreement"
     const val PRIVACY_URL = "http://120.78.175.159:8090/privacyPolicy"
-    private const val BASE_URL = "https://store-operation.tiandaowangluo.com/prod-api/"
-    //private const val BASE_URL = "http://10.15.18.93:8091/"
+    //private const val BASE_URL = "https://store-operation.tiandaowangluo.com/prod-api/"
+    private const val BASE_URL = "http://10.15.18.93:8091/"
     const val IMG_URL = "http://120.78.175.159:8090"
     private const val TIMEOUT = 30L
 

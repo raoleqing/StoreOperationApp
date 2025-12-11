@@ -1,5 +1,6 @@
 package com.tiandao.store.operation.ui.commission
 
+import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,9 +14,14 @@ import com.tiandao.store.operation.databinding.ActivityCommissionBinding
 import com.tiandao.store.operation.utils.DateUtils
 import com.tiandao.store.operation.utils.DisplayUtil
 import com.tiandao.store.operation.utils.ToastUtils
-import com.tiandao.store.operation.utils.UserUtils
 
 class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionViewModel>() {
+
+    companion object {
+        const val STAFF_ID = "staff_id"
+    }
+
+    var staffId: Long = 0
 
     private val adapter = StaffCommissionAdapter()
     var list: MutableList<StaffCommission> = mutableListOf()
@@ -33,7 +39,7 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
     }
 
     override fun initView() {
-        setTitleText("个人提成中心")
+        setTitleText("员工提成")
         infoAdapter();
         binding.srlRefreshTask.setOnRefreshListener {
             // 下拉刷新回调
@@ -62,22 +68,15 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
     }
 
     override fun initData() {
+        staffId = intent.getLongExtra(STAFF_ID, 0)
+        viewModel.staffId = staffId
+
         viewModel.pageIndex = 1
-        val date = DateUtils.getCurrentTime(DateUtils.FORMAT_YMD_HMS)
-        var month = DateUtils.getStartOfDayString( date, DateUtils.FORMAT_YMD_HMS, DateUtils.FORMAT_YM)
+        var month = DateUtils.getStartOfDayString( DateUtils.getCurrentTime(DateUtils.FORMAT_YMD_HMS), DateUtils.FORMAT_YMD_HMS, DateUtils.FORMAT_YM)
         binding.tvMonth.text = month
-
-        viewModel.staffId = UserUtils.getUserId( this)
-        viewModel.month = date
-
+        viewModel.month = month
         viewModel.getStaffCommissionListList();
-        viewModel.getStaffCountByMonth(date)
-
-        var user = UserUtils.getCurrentUser( this)
-        user?.let {
-            binding.tvName.text = it.loginUser.user.nickName
-            binding.tvPhone.text = it.loginUser.user.phonenumber
-        }
+        viewModel.getStaffHierarchy(staffId)
     }
 
     override fun observeLiveData() {
@@ -95,17 +94,20 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
             }
         }
 
-        viewModel.commissionCount.observe(this){
+        viewModel.staffHierarchy.observe(this){
            if(it != null){
-               binding.tvTotal.text = "￥".plus(it.total?:"0.00")
-               binding.tvMonthTotal.text = "￥".plus(it.count?:"0.00")
+               binding.tvName.text = it.staffName
+               binding.tvLevel.text = "等级：".plus(it.level)
+               binding.tvTotal.text = "￥".plus(it.actualSales?:"0.00")
+               binding.tvPerformancePoints.text = it.performanceScore.toString()
            }
         }
 
         viewModel.staffCommissionList.observe(this){
             if(it != null){
-                it.monthTotal?.let {
-                    binding.tvListTotal.text = "(总额：".plus(it).plus(")")
+                it.monthTotal.let {
+                    binding.tvMonthAmount.text = "提成金额：￥".plus(it.commissionAmount)
+                    binding.tvMonthPoints.text = "成长值：".plus(it.performancePoints)
                 }
                 if(viewModel.pageIndex == 1){
                     list.clear()
@@ -140,8 +142,9 @@ class CommissionActivity : BaseActivity<ActivityCommissionBinding,CommissionView
         var dialog = DateSelectDialog(this, false, object : DateSelectDialog.OnFilterAppliedListener {
             override fun determine(dialog: DateSelectDialog, date: String) {
                 dialog.dismiss()
-                binding.tvMonth.text = DateUtils.getStartOfDayString( date, DateUtils.FORMAT_YMD, DateUtils.FORMAT_YM)
-                viewModel.month = DateUtils.getStartOfMonth(date)
+                val month = DateUtils.getStartOfDayString( date, DateUtils.FORMAT_YMD, DateUtils.FORMAT_YM);
+                binding.tvMonth.text = month
+                viewModel.month = month
                 viewModel.pageIndex = 1
                 viewModel.getStaffCommissionListList()
             }

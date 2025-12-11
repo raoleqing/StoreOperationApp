@@ -15,6 +15,7 @@ import com.tiandao.store.operation.databinding.FragmentHomeBinding
 import com.tiandao.store.operation.ui.audit.AuditActivity
 import com.tiandao.store.operation.ui.commission.CommissionActivity
 import com.tiandao.store.operation.ui.shop.ShopListActivity
+import com.tiandao.store.operation.ui.team.TeamActivity
 import com.tiandao.store.operation.ui.tenant.TenantListActivity
 import com.tiandao.store.operation.utils.DisplayUtil
 import com.tiandao.store.operation.utils.UserUtils
@@ -81,6 +82,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }else if(menu.code == "Commission"){
             // 个人提成
             Intent(requireActivity(), CommissionActivity::class.java).apply {
+                putExtra(CommissionActivity.STAFF_ID, UserUtils.getUserId(requireContext()))
+                startActivity(this)
+            }
+        }else if(menu.code == "Team"){
+            // 个人提成
+            Intent(requireActivity(), TeamActivity::class.java).apply {
                 startActivity(this)
             }
         }
@@ -92,6 +99,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         list.add(SysMenu(2, 2, "门店列表", "ShopList", R.mipmap.shop_icon))
         list.add(SysMenu(2, 2, "审核列表", "AuditList", R.mipmap.audit_icon))
         list.add(SysMenu(2, 2, "提成流水", "Commission", R.mipmap.commission_icon))
+        list.add(SysMenu(2, 2, "我的团队", "Team", R.mipmap.team_icon))
         adapter.submitList( list);
     }
 
