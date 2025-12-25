@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownServiceException
+import kotlin.code
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -63,9 +64,15 @@ abstract class BaseViewModel : ViewModel() {
         val intent = Intent("com.tiandao.store.operation.AuthBroadcastReceiver").apply {
             putExtra("code", bean.code)
             putExtra("msg", bean.msg)
+            // 关键：显式设置此广播发送给本应用
+            `package` = ActivityCollectorUtil.getTopActivity()?.packageName
+            // 或者，如果知道具体的Receiver类，可以用ComponentName更精确
+            // component = ComponentName(packageName, "com.tiandao.merchant.base.AuthBroadcastReceiver")
         }
         ActivityCollectorUtil.getTopActivity()?.sendBroadcast(intent)
     }
+
+
 
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
